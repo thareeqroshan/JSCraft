@@ -4,6 +4,7 @@ import Stats from "three/examples/jsm/libs/stats.module.js";
 import { World } from "./world.js";
 import { createUI } from "./ui.js";
 import { Player } from "./player.js";
+import { Physics } from "./physics.js";
 
 const stats = new Stats();
 document.body.appendChild(stats.dom);
@@ -37,6 +38,8 @@ scene.add(world);
 
 const player = new Player(scene);
 
+const physics = new Physics(scene);
+
 function setupLights() {
   const sun = new THREE.DirectionalLight();
   sun.position.set(50, 50, 50);
@@ -66,6 +69,8 @@ function animate() {
   let deltaTime = (currentTime - previousTime) / 1000;
   requestAnimationFrame(animate);
   player.applyInput(deltaTime);
+  player.updateBoundsHelper();
+  physics.update(deltaTime, player, world);
   renderer.render(
     scene,
     player.controls.isLocked ? player.camera : orbitCamera

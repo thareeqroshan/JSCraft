@@ -15,6 +15,7 @@ export function createUI(world, player) {
   terrainFolder.add(world.params.terrain, "scale", 10, 100).name("Scale");
   terrainFolder.add(world.params.terrain, "magnitude", 0, 1).name("Magnitude");
   terrainFolder.add(world.params.terrain, "offset", 0, 1).name("Offset");
+  // terrainFolder.close();
 
   const resourcesFolder = gui.addFolder("Resources");
   resources.forEach((resource) => {
@@ -25,6 +26,7 @@ export function createUI(world, player) {
     scaleFolder.add(resource.scale, "x", 10, 100).name("X Scale");
     scaleFolder.add(resource.scale, "y", 10, 100).name("Y Scale");
     scaleFolder.add(resource.scale, "z", 10, 100).name("Z Scale");
+    resourceFolder.close();
   });
 
   gui.onChange(() => {

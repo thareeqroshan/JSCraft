@@ -8,7 +8,7 @@ import { PointerLockControls } from "three/addons/controls/PointerLockControls.j
 export class Player {
   radius = 0.5;
   height = 1.75;
-  jumpSpeed = 10;
+  jumpSpeed = 50;
   onGround = false;
 
   maxSpeed = 10;
@@ -40,7 +40,7 @@ export class Player {
    * @param {THREE.Scene} scene - The scene to add the player to.
    */
   constructor(scene) {
-    this.position.set(32, 32, 32);
+    this.position.set(32, 64, 32);
     this.cameraHelper.visible = false;
 
     scene.add(this.camera);

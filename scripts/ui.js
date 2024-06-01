@@ -22,7 +22,7 @@ export function createUI(scene, world, player, physics) {
   worldFolder.add(world, "drawDistance", 0, 5, 1).name("Draw Distance");
 
   const terrainFolder = gui.addFolder("Terrain");
-  terrainFolder.add(world.chunkSize, "width", 8, 150, 1).name("Width");
+  terrainFolder.add(world.chunkSize, "width", 1, 150, 1).name("Width");
   terrainFolder.add(world.chunkSize, "height", 8, 128, 1).name("Height");
   terrainFolder.add(world.params, "seed", 0, 10000, 1).name("Seed");
   terrainFolder.add(world.params.terrain, "scale", 10, 100).name("Scale");

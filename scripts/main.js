@@ -26,15 +26,17 @@ const orbitCamera = new THREE.PerspectiveCamera(
 orbitCamera.position.set(-24, 50, 20);
 orbitCamera.lookAt(0, 0, 0);
 
-const controls = new OrbitControls(orbitCamera, renderer.domElement);
-controls.target.set(32, 0, 16);
-controls.update();
-
 // Scene setup
 const scene = new THREE.Scene();
 scene.fog = new THREE.Fog(0x80a0e0, 50, 100);
 const world = new World();
 scene.add(world);
+
+const controls = new OrbitControls(orbitCamera, renderer.domElement);
+// target controls to middle of the world
+
+
+controls.update();
 
 const player = new Player(scene);
 
